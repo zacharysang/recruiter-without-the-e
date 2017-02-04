@@ -2,14 +2,15 @@ var GitHub = require('github-api');
 var unique = require('array-unique');
 var usercontribs = require('github-user-contributions');
 
-var gh = new GitHub({
-    username: 'zcollins0',
-    password: ''
-});
+function getGitHubInfo(userToRead) {
+    
+    var gh = new GitHub({
+        username: userToRead,
+        password: ''
+    });
 
-var user = gh.getUser('zcollins0');
+    var user = gh.getUser(userToRead);
 
-function getGitHubInfo() {
     var GitHubProfile = {
         name: '',
         company: '',
@@ -42,7 +43,7 @@ function getGitHubInfo() {
         '');
 
     var commitcounter = new Promise(function(resolve, reject) {
-        contribclient.commits('zcollins0', function(err, data) {
+        contribclient.commits(userToRead, function(err, data) {
             for (var i = 0; i < data.length; i++) {
                 GitHubProfile.commit_count += data[i][0].commits.length;
             }
@@ -55,7 +56,7 @@ function getGitHubInfo() {
     });
 }
 
-var prof = getGitHubInfo();
+var prof = getGitHubInfo('zcollins0');
 prof.then(function() {
     console.log(prof);
 });
