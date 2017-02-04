@@ -28,6 +28,11 @@ exports.createProfile = function(req, res) {
         github = github.substring(github.lastIndexOf('/'), github.length());
     }
 
+    var githubInfo = githubScraper.getGitHubInfo(github);
+    githubInfo.then(function() {
+        console.log(githubInfo);
+    });
 
+    //Promise.all([githubInfo, resumeInfo]).then(function() {})
 
 }

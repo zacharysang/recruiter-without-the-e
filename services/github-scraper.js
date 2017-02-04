@@ -2,11 +2,11 @@ var GitHub = require('github-api');
 var unique = require('array-unique');
 var usercontribs = require('github-user-contributions');
 
-function getGitHubInfo(userToRead) {
+exports.getGitHubInfo = function(userToRead) {
     
     var gh = new GitHub({
-        username: userToRead,
-        password: ''
+        username: process.env.GITHUB_USERNAME,
+        password: process.env.GITHUB_PASSWORD
     });
 
     var user = gh.getUser(userToRead);
@@ -40,7 +40,7 @@ function getGitHubInfo(userToRead) {
 
     var contribclient = usercontribs.client(
         '746755c3230fe2bda645',
-        '');
+        process.env.GITHUB_API_KEY);
 
     var commitcounter = new Promise(function(resolve, reject) {
         contribclient.commits(userToRead, function(err, data) {
@@ -56,7 +56,7 @@ function getGitHubInfo(userToRead) {
     });
 }
 
-var prof = getGitHubInfo('zcollins0');
-prof.then(function() {
-    console.log(prof);
-});
+// var prof = exports.getGitHubInfo('zcollins0');
+// prof.then(function() {
+//     console.log(prof);
+//});
