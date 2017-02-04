@@ -12,6 +12,7 @@ html {
 
 #title {
 	font-size:72px;
+	padding:50px;
 }
 
 body {
@@ -24,7 +25,7 @@ a {
   color: #00B7FF;
 }
 
-input{
+.profile-input{
 	width:250px;
 	padding:12px;
 	margin:7px;
@@ -34,29 +35,57 @@ input{
 	border-width:0px;
 }
 
-input:hover{
+.profile-input:hover{
 	width:330px;
 	transition:0.3s;
 }
 
-input:focus{
+.profile-input:focus{
 	width:330px;
 }
 
-svg:hover{
-	/*animation-name: submit-swell;
-	animation-duration: 0.4s;
-	*/
-	width:130px;
-	transition:0.4s;
-	
+/*These need testing*/
+.profile-input:not(focus){
+	width:250px;
+	transition:0.3s;
 }
 
-svg{
+#submit{
 	width:100px;
 	height:70px;
 	background-color:#33C733;
 	border-radius:.60rem;
+}
+
+#submit:hover{
+	width:130px;
+	transition:0.4s;
+}
+
+/*These need testing*/
+#submit:not(hover){
+	width:100px;
+	transition:0.4s;
+}
+
+.nav-button{
+	align:center;
+	display:inline-block;
+	width:700px;
+	padding:30px;
+	margin:20px;
+	border-radius:.60rem;
+	background-color:#10B410;
+}
+
+.nav-button:hover{
+	width:800px;
+	transition:0.4s;
+}
+
+.nav-button:not(hover){
+	width:700px;
+	transition:0.4s;
 }
 
 
