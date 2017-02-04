@@ -1,4 +1,4 @@
-import GitHub from 'github-api';
+var GitHub = require('github-api');
 
 var gh = new GitHub();
 
