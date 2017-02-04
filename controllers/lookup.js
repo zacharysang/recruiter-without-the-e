@@ -3,6 +3,7 @@
  */
 var util = require('util');
 var githubScraper = require('../services/github-scraper');
+var resumeScraper = require('../services/resume-scraper.js');
 //var resumeScraper = require('../services/resume-scraper');
 
 exports.renderForm = function(req, res) {
@@ -11,8 +12,9 @@ exports.renderForm = function(req, res) {
 
 exports.doLookup = function(req, res) {
     var github = req.body.github;
+    var resume;
     try {
-        var resume = req.file.path;
+        resume = req.file.path;
     } catch (e) {
         console.log("Resume field blank");
     }
@@ -34,15 +36,22 @@ exports.doLookup = function(req, res) {
     }
 
     var githubInfo = githubScraper.getGitHubInfo(github);
+    var resumeInfo;
+    if (resume) {resumeInfo = resumeScraper.getResumeInfo(resume);}
 
     Promise.resolve(githubInfo).then(function(githubStuff) {
     //githubInfo.then(function() {
-        res.render('profile', {profile: {name: githubStuff.name,
+        res.render('profile', {profile: {
+            name: githubStuff.name,
             location: githubStuff.location,
             bio: githubStuff.bio,
             repo_count: githubStuff.repo_count,
             languages: githubStuff.languages,
-        commit_count: githubStuff.commit_count}})
+            commit_count: githubStuff.commit_count,
+            skills: resumeInfo.skills,
+            education: resumeInfo.education,
+            experience: resumeInfo.experience
+    }})
     })
 
 }
