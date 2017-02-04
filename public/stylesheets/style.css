@@ -23,7 +23,7 @@ a {
   color: #00B7FF;
 }
 
-.profile-input input{
+input{
 	width:250px;
 	padding:12px;
 	margin:7px;
@@ -33,7 +33,7 @@ a {
 	border-width:0px;
 }
 
-.profile-input input:focus{
+input:focus{
 	width:330px;
 	transition:0.4s;
 }
