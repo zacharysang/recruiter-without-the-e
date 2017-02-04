@@ -16,10 +16,19 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: black;
+  display: block;
+  text-decoration: none;
+  
 }
 
-.profile-input > input{
+#form-container {
+	width:380px;
+	align:center;
+	display:inline-block;
+}
+
+.profile-input > *{
 	width:250px;
 	padding:12px;
 	margin:7px;
@@ -29,27 +38,29 @@ a {
 	border-width:0px;
 }
 
-.profile-input:hover > input{
+.profile-input:hover > *{
 	width:330px;
 	transition:0.3s;
 }
 
-.profile-input:focus > input{
+.profile-input:focus > *{
 	width:330px;
 }
 
-/*These need testing*/
-.profile-input:not(focus) > input{
+.profile-input:not(focus) > *{
 	width:250px;
 	transition:0.3s;
 }
 
 #submit{
+	display:inline-block;
 	width:100px;
 	height:70px;
 	background-color:#33C733;
 	border-radius:.60rem;
 	margin:20px;
+	vertical-align:middle;
+	text-align:center;
 }
 
 #submit:hover{
@@ -82,5 +93,13 @@ a {
 	width:700px;
 	transition:0.4s;
 }
+
+#ideal-form{
+	display:inline-block;
+	align:center;
+	
+}
+
+
 
 
