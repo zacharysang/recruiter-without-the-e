@@ -2,13 +2,12 @@ extends layout.jade
 
 block content
 	div(id="title") Lookup
-	div(id="form-container")
+	form(id="form-container" action="lookup" method="post")
 		text(id="title-text")
 		div(class="profile-input" id="github")
 			input(type="textbox" placeholder="github username")
 		div(class="profile-input" id="linkedin")
 			input(type="textbox" placeholder="linkedin username")
 		div(class="profile-input" id="resume")
-			input(type="file" size="60")
-		svg(id="submit")
-			text(x="40%" y="55%") Go!
+			input(type="file" placeholder="Resume")
+		input(type="submit" id="submit" value="Go!")
