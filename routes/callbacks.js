@@ -5,6 +5,7 @@ var callbacksController = require('./../controllers/callbacks')
 
 /*GET github callback */
 router.get('/github', callbacksController.githubCallback);
-//route.get('/linkedin', callbacksController.linkedinCallback);
+
+router.get('/linkedin', callbacksController.linkedinCallback);
 
 module.exports = router;
