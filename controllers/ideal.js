@@ -7,16 +7,12 @@ exports.renderForm = function(req, res) {
     res.render('ideal');
 }
 
-var id = {
-    langs:["python","Java"]
-}
-
-function compare(ideal, candidate) {
-    Promise.all([candidate]).then(function() {
+exports.compare = function(ideal, candidate) {
+    Promise.resolve(candidate).then(function(x) {
         var resultlangs = [];
         for (var i = 0; i < ideal.langs.length; i++) {
-            for (var k = 0; k < candidate.languages.length; k++) {
-                if (ideal.langs[i] == candidate.languages[k]) {
+            for (var k = 0; k < x.languages.length; k++) {
+                if (ideal.langs[i] == x.languages[k]) {
                     resultlangs.push(ideal.langs[i]);
                 }
             }
@@ -25,4 +21,4 @@ function compare(ideal, candidate) {
     });
 }
 
-compare(id, gitHub.getGitHubInfo('zcollins0'));
+//compare(id, gitHub.getGitHubInfo('zcollins0'));
