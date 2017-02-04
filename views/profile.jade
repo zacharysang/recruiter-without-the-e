@@ -4,10 +4,10 @@ mixin overview-item(att,val)
 	li.item= att + " : " +  (val != null ? (val.toString()) : "Not present")
 	
 mixin snapshot-item(att,val)
-	li.item= att + " : " +  (val != null ? val.toString() : "Not present")
+	li.item= att + " : " +  (val != null ? val : "Not present")
 	
 mixin details-item(att,val)
-	li.item= att + " : " +  (val != null ? val.toString() : "Not present")
+	li.item= att + " : " +  (val != null ? val : "Not present")
 		
 block content
 	div(id="title") Profile
@@ -32,7 +32,7 @@ block content
 					ul
 						for skill in profile.skills
 							li=skill
-		
+
 		div(class="profile-section" id="details")
 			div(class="section-title") Details
 			ul
