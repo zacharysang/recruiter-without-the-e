@@ -44,11 +44,11 @@ a {
 	transition:0.3s;
 }
 
-.profile-input:focus > *{
+.profile-input > *:focus{
 	width:330px;
 }
 
-.profile-input:not(focus) > *{
+.profile-input > *:not(focus){
 	width:250px;
 	transition:0.3s;
 }
