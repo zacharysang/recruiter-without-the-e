@@ -5,6 +5,7 @@ var users = require('./users');
 var ideal = require('./ideal')
 var lookup = require('./lookup')
 var callbacks = require('./callbacks');
+var profile = require('./profile');
 
 
 /* GET home page. */
@@ -19,5 +20,7 @@ router.use('/lookup', lookup)
 router.use('/callback', callbacks);
 
 router.use('/users', users);
+
+router.use('/profile',profile);
 
 module.exports = router;

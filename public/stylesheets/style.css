@@ -1,91 +1,145 @@
 /*http://paletton.com/#uid=12P0u0kjJBH9-SXf9KFnKvhtdsb*/
 
-@keyframes submit-swell {
-	0% {width:100;}
-	60% {width:120;}
-	100% {width:100;}
-}
-
 html {
-	background-color:#79E579
+	background-color:white
 }
 
 #title {
 	font-size:72px;
-	padding:50px;
+	padding-bottom:7%;
+	padding-top:12%;
 }
 
 body {
-  padding: 50px;
+  padding: 10%;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align: center;
 }
 
-a {
-  color: #00B7FF;
+.container{
+	align:center;
+	display:inline-block;
+	min-width:450px;
+	width:auto;
+	height:auto;
+	border-radius:5rem;
+	background-color:#A4BFFF;
 }
 
-input{
-	width:250px;
-	padding:12px;
-	margin:7px;
-	background-color: white;
+a {
+  color: black;
+  display: block;
+  text-decoration: none;
+}
+
+#form-container {
+	width:80%;
+	align:center;
+	display:inline-block;
+}
+
+.profile-input > *{
+	width:60%;
+	padding:5%;
+	margin:2%;
+	background-color: #DCE6FF;
 	border-radius:.40rem;
 	border-style:solid;
 	border-width:0px;
 }
 
-input:hover{
-	width:330px;
+.profile-input:hover > *{
+	width:80%;
 	transition:0.3s;
 }
 
-input:focus{
-	width:330px;
+.profile-input > *:focus{
+	width:80%;
 }
 
-/*These need testing*/
-input:not(focus){
-	width:250px;
+.profile-input > *:not(focus){
+	width:60%;
 	transition:0.3s;
 }
 
 #submit{
-	width:100px;
-	height:70px;
-	background-color:#33C733;
+	display:inline-block;
+	width:10%;
+	height:7%;
+	background-color:#6C98FF;
 	border-radius:.60rem;
+	align:center;
+	padding:5%;
+	margin:10%;
+	border-style:solid;
+	border-width:0px;
 }
 
 #submit:hover{
-	width:130px;
+	width:60%;
 	transition:0.4s;
 }
 
-/*These need testing*/
 #submit:not(hover){
-	width:100px;
+	width:25%;
 	transition:0.4s;
 }
 
 .nav-button{
+	width:10%;
+	padding:6%;
+	margin:5%;
+	border-radius:.60rem;
+	background-color:#6C98FF;
 	align:center;
 	display:inline-block;
-	width:700px;
-	padding:30px;
-	margin:20px;
-	border-radius:.60rem;
-	background-color:#10B410;
 }
 
 .nav-button:hover{
-	width:800px;
-	transition:0.4s;
+	width:65%;
+	transition:0.3s;
 }
 
 .nav-button:not(hover){
-	width:700px;
-	transition:0.4s;
+	width:50%;
+	transition:0.3s;
 }
+
+#ideal-form{
+	display:inline-block;
+	align:center;
+	
+}
+
+.profile-section {
+	background-color:white;
+	border-radius:2rem;
+	width:750px;
+	display:inline-block;
+	margin:3%;
+	padding:2%;
+	text-align:left;
+}
+
+.profile-section > ul,.profile-section > div{
+	list-style:none;
+}
+
+.profile-section:last-child{
+	list-style:none;
+	margin-bottom:15%;
+}
+
+.profile-container {
+	display:inline;
+	width:100%;
+}
+
+.section-title {
+	font-size:18pt;
+}
+
+
+
 
 
