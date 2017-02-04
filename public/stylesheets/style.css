@@ -1,12 +1,13 @@
 /*http://paletton.com/#uid=12P0u0kjJBH9-SXf9KFnKvhtdsb*/
 
 html {
-	background-color:#79E579
+	background-color:white
 }
 
 #title {
 	font-size:72px;
-	padding:50px;
+	padding-bottom:30px;
+	padding-top:70px;
 }
 
 body {
@@ -32,7 +33,7 @@ a {
 	width:250px;
 	padding:12px;
 	margin:7px;
-	background-color: white;
+	background-color: #DCE6FF;
 	border-radius:.40rem;
 	border-style:solid;
 	border-width:0px;
@@ -54,13 +55,15 @@ a {
 
 #submit{
 	display:inline-block;
-	width:100px;
-	height:70px;
-	background-color:#33C733;
+	width:10px;
+	height:10px;
+	background-color:#6C98FF;
 	border-radius:.60rem;
+	align:center;
+	padding:20px;
+	padding-top:30px;
+	padding-bottom:40px;
 	margin:20px;
-	vertical-align:middle;
-	text-align:center;
 }
 
 #submit:hover{
@@ -68,29 +71,28 @@ a {
 	transition:0.4s;
 }
 
-/*These need testing*/
 #submit:not(hover){
 	width:100px;
 	transition:0.4s;
 }
 
 .nav-button{
-	align:center;
-	display:inline-block;
-	width:700px;
+	width:300px;
 	padding:30px;
 	margin:20px;
 	border-radius:.60rem;
-	background-color:#10B410;
+	background-color:#6C98FF;
+	align:center;
+	display:inline-block;
 }
 
 .nav-button:hover{
-	width:800px;
+	width:350px;
 	transition:0.4s;
 }
 
 .nav-button:not(hover){
-	width:700px;
+	width:300px;
 	transition:0.4s;
 }
 
@@ -98,6 +100,15 @@ a {
 	display:inline-block;
 	align:center;
 	
+}
+
+.container{
+	align:center;
+	display:inline-block;
+	width:500px;
+	height:500px;
+	border-radius:5rem;
+	background-color:#A4BFFF;
 }
 
 
