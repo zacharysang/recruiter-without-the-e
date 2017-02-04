@@ -22,14 +22,20 @@ block content
 		div(class="profile-section" id="snapshot")
 			div(class="section-title") Snapshot
 			ul
-				+snapshot-item("Github repos",profile.repo-count)
-				+snapshot-item("Github commits",profile.commit-count)
-				+snapshot-item("Languages",profile.repo-count)
+				+snapshot-item("Github repos",profile.repo_count)
+				+snapshot-item("Github commits",profile.commit_count)
+				+snapshot-item("Languages",profile.languages)
 					ul
 						for lang in profile.languages
 							li=lang
+				+snapshot-item("Skills",resumeInfo.skills)
+					ul
+						for skill in resumeInfo.skills
+							li=skill
 		
 		div(class="profile-section" id="details")
 			div(class="section-title") Details
 			ul
 				+details-item("Bio",profile.bio)
+				+details-item("Experience",resumeInfo.experience)
+				+details-item("Education",resumeInfo.education)
