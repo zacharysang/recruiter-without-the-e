@@ -33,13 +33,13 @@ exports.doLookup = function(req, res) {
     var githubInfo = githubScraper.getGitHubInfo(github);
 
     Promise.all([githubInfo]).then(function() {
-        res.render('profile', { profile: {name: githubInfo.name,
-            company: githubInfo.company,
-            location: githubInfo.location,
-            bio: githubInfo.bio,
-            repo_count: githubInfo.repo_count,
-            languages: githubInfo.languages,
-            commit_count: githubInfo.commit_count}})
+        res.render('profile', { profile: {name: (githubInfo.name),
+            company: (githubInfo.company),
+            location: (githubInfo.location),
+            bio: (githubInfo.bio),
+            repo_count: (githubInfo.repo_count),
+            languages: (githubInfo.languages),
+            commit_count: (githubInfo.commit_count)}})
     })
 
 }
