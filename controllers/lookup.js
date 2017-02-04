@@ -3,5 +3,5 @@
  */
 
 exports.renderForm = function(req, res) {
-    //res.render('lookup');
+    res.render('lookup');
 }

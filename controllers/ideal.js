@@ -3,5 +3,5 @@
  */
 
 exports.renderForm = function(req, res) {
-    //res.render('ideal');
+    res.render('ideal');
 }

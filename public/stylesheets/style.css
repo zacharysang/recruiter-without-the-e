@@ -25,7 +25,7 @@ a {
   color: #00B7FF;
 }
 
-.profile-input{
+input{
 	width:250px;
 	padding:12px;
 	margin:7px;
@@ -35,17 +35,17 @@ a {
 	border-width:0px;
 }
 
-.profile-input:hover{
+input:hover{
 	width:330px;
 	transition:0.3s;
 }
 
-.profile-input:focus{
+input:focus{
 	width:330px;
 }
 
 /*These need testing*/
-.profile-input:not(focus){
+input:not(focus){
 	width:250px;
 	transition:0.3s;
 }
