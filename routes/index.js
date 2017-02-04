@@ -9,6 +9,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/ideal',function(req,res,next){
+	res.render('ideal',{title: 'Express'});
+});
+
 router.use('/callback', callbacks);
 
 router.use('/users', users);

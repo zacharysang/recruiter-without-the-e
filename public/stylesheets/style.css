@@ -34,14 +34,22 @@ input{
 	border-width:0px;
 }
 
-input:focus{
+input:hover{
 	width:330px;
 	transition:0.3s;
 }
 
+input:focus{
+	width:330px;
+}
+
 svg:hover{
-	animation-name: submit-swell;
+	/*animation-name: submit-swell;
 	animation-duration: 0.4s;
+	*/
+	width:130px;
+	transition:0.4s;
+	
 }
 
 svg{
@@ -50,6 +58,5 @@ svg{
 	background-color:#33C733;
 	border-radius:.60rem;
 }
-
 
 

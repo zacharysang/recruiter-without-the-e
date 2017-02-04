@@ -1,27 +1,12 @@
-//	
-	extends layout
-
-	block content
-	h1= title
-	p Welcome to #{title}
-
-html
-	head
-		//- link(rel='stylesheet', href='/stylesheets/style.css')
-		title recruiter-without-the-e
-	body
-		div(id="title") Input
-		div(id="form-container")
-			text(id="title-text")
-			div(class="profile-input" id="github")
-				input(type="textbox" placeholder="github username")
-			div(class="profile-input" id="linkedin")
-				input(type="textbox" placeholder="linkedin username")
-			div(class="profile-input" id="resume")
-				input(type="file")
-			svg(id="submit")
-				text(x="40%" y="55%") Go!
-			
-	
+extends layout.jade
 		
-		
+block content
+	div(id="title") Ideal
+	div(id="form-container")
+		text(id="title-text")
+		div(class="profile-input" id="github")
+			input(type="textbox" placeholder="github username")
+		div(class="profile-input" id="linkedin")
+			input(type="textbox" placeholder="linkedin username")
+		div(class="profile-input" id="resume")
+			input(type="file")
