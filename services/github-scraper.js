@@ -6,7 +6,7 @@ exports.getGitHubInfo = function(userToRead) {
     
     var gh = new GitHub({
         username: process.env.GITHUB_USERNAME,
-        password: pcocess.env.GITHUB_PASSWORD
+        password: process.env.GITHUB_PASSWORD
     });
 
     var user = gh.getUser(userToRead);

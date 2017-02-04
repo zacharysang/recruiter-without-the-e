@@ -10,9 +10,14 @@ var fileUpload = require('express-fileupload');
 var validator = require('express-validator')
 
 var routes = require('./routes/index');
+var compare = require('./controllers/ideal');
 
 // Check if the '--dev' flag was passed
 const devMode = process.argv[2] === '--dev';
+
+var id = {
+    langs:["python","Java"]
+}
 
 var app = express();
 
@@ -50,6 +55,8 @@ if (devMode) {
 }
 
 var githubScraper = require('./services/github-scraper');
+
+compare.compare(id, githubScraper.getGitHubInfo('zcollins0'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
