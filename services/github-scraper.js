@@ -5,13 +5,8 @@ var usercontribs = require('github-user-contributions');
 exports.getGitHubInfo = function(userToRead) {
     
     var gh = new GitHub({
-<<<<<<< HEAD
         username: userToRead,
-        password: 'abc283xyz'
-=======
-        username: process.env.GITHUB_USERNAME,
-        password: process.env.GITHUB_PASSWORD
->>>>>>> master
+        password: ''
     });
 
     var user = gh.getUser(userToRead);
@@ -45,11 +40,7 @@ exports.getGitHubInfo = function(userToRead) {
 
     var contribclient = usercontribs.client(
         '746755c3230fe2bda645',
-<<<<<<< HEAD
-        'b92a8af596ecac300b9867b21f4422dc4a263b4e');
-=======
-        process.env.GITHUB_API_KEY);
->>>>>>> master
+        '');
 
     var commitcounter = new Promise(function(resolve, reject) {
         contribclient.commits(userToRead, function(err, data) {
@@ -65,8 +56,7 @@ exports.getGitHubInfo = function(userToRead) {
     });
 }
 
-// How to use
-// var prof = exports.getGitHubInfo('zcollins0');
-// prof.then(function() {
-//     console.log(prof);
-//});
+/*var prof = getGitHubInfo('zcollins0');
+prof.then(function() {
+    console.log(prof);
+});*/
