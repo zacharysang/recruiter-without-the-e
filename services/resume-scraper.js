@@ -1,10 +1,10 @@
 var LOG = require("C:/Users/ltebb/node_modules/pdfreader/lib/LOG.js").toggle(false);
 var PdfReader = require("C:/Users/ltebb/node_modules/pdfreader/index.js").PdfReader;
-var fs = require('fs');
+var fs = require('graceful-fs');
 
 
 function printRawItems(filename, callback){
- var stream = new PdfReader().parseFileItems(filename, function(err, item){
+ new PdfReader().parseFileItems(filename, function(err, item){
     if (err)
       callback(err);
     else if (!item)
@@ -14,9 +14,10 @@ function printRawItems(filename, callback){
     else if (item.page)
       console.log("page =", item.page);
     else if (item.x)
-      stream.pipe(fs.createWriteStream("C:/Users/ltebb/workdir/recruiter-without-the-e/services/output.txt", item.text, function(er){
-          if(er){return console.log(er);}
-      }));
+     {
+        var logStream = fs.createWriteStream("C:/Users/ltebb/workdir/recruiter-without-the-e/services/output.txt", {'flags': 'a'});
+        logStream.write(item.text);
+     }
     else
       console.warn(item);
   });
