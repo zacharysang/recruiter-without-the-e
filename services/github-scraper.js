@@ -5,8 +5,8 @@ var usercontribs = require('github-user-contributions');
 function getGitHubInfo(userToRead) {
     
     var gh = new GitHub({
-        username: userToRead,
-        password: ''
+        username: process.env.GITHUB_USERNAME,
+        password: process.env.GITHUB_PASSWORD
     });
 
     var user = gh.getUser(userToRead);
@@ -40,7 +40,7 @@ function getGitHubInfo(userToRead) {
 
     var contribclient = usercontribs.client(
         '746755c3230fe2bda645',
-        '');
+        process.env.GITHUB_APP_SECRET);
 
     var commitcounter = new Promise(function(resolve, reject) {
         contribclient.commits(userToRead, function(err, data) {
