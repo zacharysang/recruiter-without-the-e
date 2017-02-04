@@ -47,21 +47,47 @@ var txtFile=new JFile("output.txt");
 var languages = [" c ", "c#", "php", "ruby", " go ", "c++", "java", "javascript",  "html", "css", "python"];
 for(let lang of languages){
   var result = txtFile.grep(lang);
-  if(result.length>0) resumeInfo.languages += (lang + ", ");
+  if(result.length>0){
+    resumeInfo.languages += (lang + ", ");
+  }
 }
+
 var skills = [" ui ", "user interface", "app ", " iot ", "cloud", "parallel computing", " ai ", "artificial intelligence", "deep learning", "machine learning"];
 for(let skill of skills){
   var result = txtFile.grep(skill);
   if(result.length>0) resumeInfo.skills += (skill + ", ");
 }
-var experience = ["Experience"];
+
+var experience = ["Work History", "Experience"];
+var found = false;
 for(let exp of experience){
-  var lin = txtFile.lines;
-  var where = txtFile.grep(exp, true);
-  var toPrint = [where[0].i, (where[0].i)+1, (where[0].i)+2, (where[0].i)+3];
-  for(let k in toPrint){
-    console.log(lin[k]);
-    resumeInfo.experience += lin[k];
+  if(!found){
+    var lin = txtFile.lines;
+    var where = txtFile.grep(exp, true);
+    if(where.length>0){
+      var toPrint = where[0].i;
+      for(var k=toPrint; k<75; k++){
+        resumeInfo.experience += lin[k];
+        found = true;
+      }
+    }
   }
- }
+}
+
+var education = ["Education", "University", "High School"];
+var found = false;
+for(let edu of education){
+  if(!found){
+    var lin = txtFile.lines;
+    var where = txtFile.grep(edu, true);
+    if(where.length>0){
+      var toPrint = where[0].i;
+      for(var k=toPrint; k<25; k++){
+        resumeInfo.education += lin[k];
+        found = true;
+      }
+    }
+  }
+}
 console.log(resumeInfo);
+return(resumeInfo);
