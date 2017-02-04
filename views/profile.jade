@@ -4,10 +4,10 @@ mixin overview-item(att,val)
 	li.item= att + " : " +  (val != null ? (val.toString()) : "Not present")
 	
 mixin snapshot-item(att,val)
-	li.item= att + " : " +  (val != null ? val.toString() : "Not present")
+	li.item= att + " : " +  (val != null ? val : "Not present")
 	
 mixin details-item(att,val)
-	li.item= att + " : " +  (val != null ? val.toString() : "Not present")
+	li.item= att + " : " +  (val != null ? val : "Not present")
 		
 block content
 	div(id="title") Profile
@@ -30,12 +30,12 @@ block content
 							li=lang
 				+snapshot-item("Skills",profile.skills)
 					ul
-						for skill in profile.skill
-							li=lang
-		
+						for skill in profile.skills
+							li=skill
+
 		div(class="profile-section" id="details")
 			div(class="section-title") Details
 			ul
 				+details-item("Bio",profile.bio)
-				+details-item("Education",profile.education)
 				+details-item("Experience",profile.experience)
+				+details-item("Education",profile.education)

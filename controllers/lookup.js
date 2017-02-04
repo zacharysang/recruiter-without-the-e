@@ -18,6 +18,8 @@ exports.doLookup = function(req, res) {
     } catch (e) {
         console.log("Resume field blank");
     }
+    
+        console.log(req.session.IdealCandidate);
 
     req.validate('github', 'No Github Provided').notEmpty();
     // This might not work because I'm not sure if validate checks files

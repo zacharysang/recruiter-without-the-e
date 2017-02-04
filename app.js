@@ -9,7 +9,8 @@ var localTunnel = require('localtunnel');
 var fileUpload = require('express-fileupload');
 var expressValidator = require('express-validator')
 var multer = require('multer')
-
+var cookieSession = require('cookie-session')
+var expressSession = require('express-session')
 
 var routes = require('./routes/index');
 var compare = require('./controllers/ideal');
@@ -27,12 +28,23 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+// cookieSession
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// app.use(cookieSession({
+//   name: 'session',
+//   secret: 'donutcommiturpass',
+// }));
+app.use(expressSession({
+  secret: 'donutcommiturpass',
+  cookie: {}
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(expressValidator());
 
