@@ -1,8 +1,91 @@
+/*http://paletton.com/#uid=12P0u0kjJBH9-SXf9KFnKvhtdsb*/
+
+@keyframes submit-swell {
+	0% {width:100;}
+	60% {width:120;}
+	100% {width:100;}
+}
+
+html {
+	background-color:#79E579
+}
+
+#title {
+	font-size:72px;
+	padding:50px;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 a {
   color: #00B7FF;
 }
+
+input{
+	width:250px;
+	padding:12px;
+	margin:7px;
+	background-color: white;
+	border-radius:.40rem;
+	border-style:solid;
+	border-width:0px;
+}
+
+input:hover{
+	width:330px;
+	transition:0.3s;
+}
+
+input:focus{
+	width:330px;
+}
+
+/*These need testing*/
+input:not(focus){
+	width:250px;
+	transition:0.3s;
+}
+
+#submit{
+	width:100px;
+	height:70px;
+	background-color:#33C733;
+	border-radius:.60rem;
+}
+
+#submit:hover{
+	width:130px;
+	transition:0.4s;
+}
+
+/*These need testing*/
+#submit:not(hover){
+	width:100px;
+	transition:0.4s;
+}
+
+.nav-button{
+	align:center;
+	display:inline-block;
+	width:700px;
+	padding:30px;
+	margin:20px;
+	border-radius:.60rem;
+	background-color:#10B410;
+}
+
+.nav-button:hover{
+	width:800px;
+	transition:0.4s;
+}
+
+.nav-button:not(hover){
+	width:700px;
+	transition:0.4s;
+}
+
+
