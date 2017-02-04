@@ -2,6 +2,12 @@ var LOG = require("C:/Users/ltebb/node_modules/pdfreader/lib/LOG.js").toggle(fal
 var PdfReader = require("C:/Users/ltebb/node_modules/pdfreader/index.js").PdfReader;
 var fs = require('graceful-fs');
 
+var resumeInfo = {
+  languages: '',
+  skills: '',
+  education: '',
+  experience: '',
+};
 
 function printRawItems(filename, callback){
  new PdfReader().parseFileItems(filename, function(err, item){
@@ -15,35 +21,23 @@ function printRawItems(filename, callback){
       console.log("page =", item.page);
     else if (item.x)
      {
-        var logStream = fs.createWriteStream("C:/Users/ltebb/workdir/recruiter-without-the-e/services/output.txt");
+        var logStream = fs.createWriteStream("output.txt");
         fs.appendFile('output.txt', "\n" + item.text, function(er){
           callback(er);
+        });
+        logStream.on("end", function(){
+          logStream.end();
         });
      }
     else
       console.warn(item);
   });
+  return "output.txt";
 }
 
-var resumeInfo = {
-  languages: '',
-  skills: '',
-  education: '',
-  experience: '',
-};
-
-var filename = process.argv[2];
-if (!filename) {
-  console.error("please provide the name of a PDF file");
-}
-else {
-  console.warn("printing raw items from file:", filename, "...");
-  printRawItems(filename, function(){
-  });
-}
-
+function fillInInfo(outfile){
 var JFile=require('jfile');
-var txtFile=new JFile("output.txt");
+var txtFile=new JFile(outfile);
 var languages = [" c ", "c#", "php", "ruby", " go ", "c++", "java", "javascript",  "html", "css", "python"];
 for(let lang of languages){
   var result = txtFile.grep(lang);
@@ -66,7 +60,8 @@ for(let exp of experience){
     var where = txtFile.grep(exp, true);
     if(where.length>0){
       var toPrint = where[0].i;
-      for(var k=toPrint; k<75; k++){
+      console.log(toPrint);
+      for(var k=toPrint; k<toPrint+50; k++){
         resumeInfo.experience += lin[k];
         found = true;
       }
@@ -82,7 +77,7 @@ for(let edu of education){
     var where = txtFile.grep(edu, true);
     if(where.length>0){
       var toPrint = where[0].i;
-      for(var k=toPrint; k<25; k++){
+      for(var k=toPrint; k<toPrint+25; k++){
         resumeInfo.education += lin[k];
         found = true;
       }
@@ -91,3 +86,22 @@ for(let edu of education){
 }
 console.log(resumeInfo);
 return(resumeInfo);
+}
+
+function getResumeInfo(){
+  var filename = process.argv[2];
+  if (!filename) {
+    console.error("please provide the name of a PDF file");
+  }
+  else {
+    console.warn("printing raw items from file:", filename, "...");
+
+
+    var o = new Promise(function(resolve, reject){
+    var p= printRawItems(filename, function(){});
+      resolve(p);
+    }); 
+    Promise.all([o]).then(function(){var info = fillInInfo("output.txt", function(){});});
+  }
+  return resumeInfo;
+}
