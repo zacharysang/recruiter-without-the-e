@@ -6,7 +6,7 @@ function getGitHubInfo(userToRead) {
     
     var gh = new GitHub({
         username: userToRead,
-        password: ''
+        password: 'abc283xyz'
     });
 
     var user = gh.getUser(userToRead);
@@ -40,7 +40,7 @@ function getGitHubInfo(userToRead) {
 
     var contribclient = usercontribs.client(
         '746755c3230fe2bda645',
-        '');
+        'b92a8af596ecac300b9867b21f4422dc4a263b4e');
 
     var commitcounter = new Promise(function(resolve, reject) {
         contribclient.commits(userToRead, function(err, data) {
