@@ -1,13 +1,11 @@
 var GitHub = require('github-api');
 var unique = require('array-unique');
-var usercontribs = require('github-user-contribs');
+var usercontribs = require('github-user-contributions');
 
 var gh = new GitHub({
     username: 'zcollins0',
     password: ''
 });
-
-console.log(gh.password);
 
 var user = gh.getUser('zcollins0');
 
@@ -18,7 +16,8 @@ function getGitHubInfo() {
         location: '',
         bio: '',
         repo_count: '',
-        languages: []
+        languages: [],
+        commit_count: 0
     };
 
     var profile = user.getProfile(function(err, person) {
@@ -39,18 +38,24 @@ function getGitHubInfo() {
     });
 
     var contribclient = usercontribs.client(
-        "",
-        ""
-    );
+        '746755c3230fe2bda645',
+        '');
 
-    contribclient.commits("zcollins0", function(err, data){
-        console.log(data);
+    var commitcounter = new Promise(function(resolve, reject) {
+        contribclient.commits('zcollins0', function(err, data) {
+            for (var i = 0; i < data.length; i++) {
+                GitHubProfile.commit_count += data[i][0].commits.length;
+            }
+            resolve(GitHubProfile);
+        })
     });
 
-    Promise.all([repos, profile]).then(function() {
-        console.log(GitHubProfile);
+    return Promise.all([repos, profile, commitcounter]).then(function() {
+        return GitHubProfile;
     });
-
 }
 
-getGitHubInfo();
+var prof = getGitHubInfo();
+prof.then(function() {
+    console.log(prof);
+});
