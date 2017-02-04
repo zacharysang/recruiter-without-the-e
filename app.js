@@ -6,6 +6,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var localTunnel = require('localtunnel');
+var fileUpload = require('express-fileupload');
+var validator = require('express-validator')
 
 var routes = require('./routes/index');
 
