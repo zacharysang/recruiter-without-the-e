@@ -10,13 +10,16 @@ exports.renderForm = function(req, res) {
 }
 
 exports.doLookup = function(req, res) {
-    console.log(req.file)
     var github = req.body.github;
-    //var resume = req.files.resume;
+    try {
+        var resume = req.file.path;
+    } catch (e) {
+        console.log("Resume field blank");
+    }
 
     req.validate('github', 'No Github Provided').notEmpty();
     // This might not work because I'm not sure if validate checks files
-    //req.validate('resume', 'No resume provided').notEmpt();
+    req.validate('resume', 'No resume provided').notEmpty();
 
     req.getValidationResult().then(function(result) {
         if (result.length > 1) {
@@ -32,14 +35,14 @@ exports.doLookup = function(req, res) {
 
     var githubInfo = githubScraper.getGitHubInfo(github);
 
-    Promise.all([githubInfo]).then(function() {
-        res.render('profile', { profile: {name: (githubInfo.name),
-            company: (githubInfo.company),
-            location: (githubInfo.location),
-            bio: (githubInfo.bio),
-            repo_count: (githubInfo.repo_count),
-            languages: (githubInfo.languages),
-            commit_count: (githubInfo.commit_count)}})
+    Promise.resolve(githubInfo).then(function(githubStuff) {
+    //githubInfo.then(function() {
+        res.render('profile', {profile: {name: githubStuff.name,
+            location: githubStuff.location,
+            bio: githubStuff.bio,
+            repo_count: githubStuff.repo_count,
+            languages: githubStuff.languages,
+        commit_count: githubStuff.commit_count}})
     })
 
 }
