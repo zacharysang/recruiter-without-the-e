@@ -7,12 +7,19 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var localTunnel = require('localtunnel');
 var fileUpload = require('express-fileupload');
-var validator = require('express-validator')
+var expressValidator = require('express-validator')
+var multer = require('multer')
+
 
 var routes = require('./routes/index');
+var compare = require('./controllers/ideal');
 
 // Check if the '--dev' flag was passed
 const devMode = process.argv[2] === '--dev';
+
+var id = {
+    langs:["python","Java"]
+}
 
 var app = express();
 
@@ -27,6 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressValidator());
 
 app.use('/', routes);
 
@@ -50,6 +58,8 @@ if (devMode) {
 }
 
 var githubScraper = require('./services/github-scraper');
+
+compare.compare(id, githubScraper.getGitHubInfo('zcollins0'))
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

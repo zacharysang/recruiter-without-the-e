@@ -16,10 +16,11 @@
     "express-fileupload": "0.0.6",
     "express-validator": "^3.1.2",
     "github-api": "^3.0.0",
-	"github-user-contributions":"^0.1.0",
+    "github-user-contributions": "^0.1.0",
     "graceful-fs": "^4.1.11",
     "jade": "~1.11.0",
     "morgan": "~1.7.0",
+    "multer": "^1.3.0",
     "pdfreader": "^0.1.4",
     "promisify-node": "^0.4.0",
     "serve-favicon": "~2.3.0"

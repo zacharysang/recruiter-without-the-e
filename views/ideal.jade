@@ -4,13 +4,41 @@ block content
 	div(id="title") Ideal Person
 	div(id="ideal-form")
 		table
-			tr
+			tr(class="ideal-input")
+				td GPA: 
 				td
-					input(type="dropdown")
-			tr
+					input(type="number")
+			tr(class="ideal-input")
+				td Years of Experience: 
 				td
-					input(type="dropdown")
-			tr
+					input(type="number")
+			tr(class="ideal-input")
+				td Github Repos (more than..):
+				td 
+					input(type="number")
+			tr(class="ideal-input")
+				td Github Commits (more than..):
 				td
-					input(type="dropdown")
+					input(type="number")
+			tr(class="ideal-input")
+				td Languages: 					
+				td
+					select(id="lang-list")
+						option Java
+						option Javascript
+						option Swift
+						option Fortran
+						option Cobal
+						option Objective-C
+						option SQl
+						option HTML/CSS
+						option Haskell
+						option Lisp
+						option C#
+						option Perl
+						option Go
+						option Mongo
+						option Lua
+						option Python
+						option C++
 		a(id="submit" href="lookup") Submit

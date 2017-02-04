@@ -139,7 +139,24 @@ a {
 	font-size:18pt;
 }
 
+#lang-list{
+	vertical-align: top;
+}
 
+.ideal-input {
+	text-align: left;
+	margin: 50%;
+}
+
+.ideal-input > td > input{
+	width:60%;
+	padding:5%;
+	margin:2%;
+	background-color: #DCE6FF;
+	border-radius:.40rem;
+	border-style:solid;
+	border-width:0px;
+}
 
 
 

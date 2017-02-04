@@ -56,8 +56,7 @@ exports.getGitHubInfo = function(userToRead) {
     });
 }
 
-// How to use
-// var prof = exports.getGitHubInfo('zcollins0');
-// prof.then(function() {
-//     console.log(prof);
-//});
+/*var prof = getGitHubInfo('zcollins0');
+prof.then(function() {
+    console.log(prof);
+});*/
