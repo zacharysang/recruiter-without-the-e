@@ -16,7 +16,7 @@ function printRawItems(filename, callback){
     else if (item.x)
      {
         var logStream = fs.createWriteStream("C:/Users/ltebb/workdir/recruiter-without-the-e/services/output.txt", {'flags': 'a'});
-        logStream.write(item.text);
+        logStream.write(" " + item.text);
      }
     else
       console.warn(item);
