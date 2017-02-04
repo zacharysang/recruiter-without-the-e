@@ -8,20 +8,19 @@
 html
 	head
 		link(rel='stylesheet', href='/stylesheets/style.css')
-	title recruiter-without-the-e
+		title recruiter-without-the-e
 	body
-		text(id="title-text")
-		div(class="profile-input" id="github")
-			text Github:
-			input(type="textbox" value="github username")
-		div(class="profile-input" id="linkedin")
-			text Linkedin:
-			input(type="textbox" value="linkedin username")
-		div(class="profile-input" id="resume")
-			text Resume:
-			input(type="file")
-		svg(id="submit")
-			text Go!
+		div(id="title") Input
+		div(id="form-container")
+			text(id="title-text")
+			div(class="profile-input" id="github")
+				input(type="textbox" placeholder="github username")
+			div(class="profile-input" id="linkedin")
+				input(type="textbox" placeholder="linkedin username")
+			div(class="profile-input" id="resume")
+				input(type="file")
+			svg(id="submit")
+				text Go!
 			
 	
 		
