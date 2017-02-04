@@ -25,7 +25,12 @@ function printRawItems(filename, callback){
   });
 }
 
-var resumeInfo = {};
+var resumeInfo = {
+  languages: '',
+  skills: '',
+  education: '',
+  experience: '',
+};
 
 var filename = process.argv[2];
 if (!filename) {
@@ -34,14 +39,29 @@ if (!filename) {
 else {
   console.warn("printing raw items from file:", filename, "...");
   printRawItems(filename, function(){
-    //console.warn("done.");
   });
 }
 
 var JFile=require('jfile');
 var txtFile=new JFile("output.txt");
-var buzzwords = [" app ", "c++", "java", "javascript", " iot ", "cloud", "parallel computing", " ai ", "artificial intelligence", "html", "css", "deep learning", "machine learning", "python"];
-for(let word of buzzwords){
-  var result = txtFile.grep(word);
-  if(result.length>0) console.log(word);
+var languages = [" c ", "c#", "php", "ruby", " go ", "c++", "java", "javascript",  "html", "css", "python"];
+for(let lang of languages){
+  var result = txtFile.grep(lang);
+  if(result.length>0) resumeInfo.languages += (lang + ", ");
 }
+var skills = [" ui ", "user interface", "app ", " iot ", "cloud", "parallel computing", " ai ", "artificial intelligence", "deep learning", "machine learning"];
+for(let skill of skills){
+  var result = txtFile.grep(skill);
+  if(result.length>0) resumeInfo.skills += (skill + ", ");
+}
+var experience = ["Experience"];
+for(let exp of experience){
+  var lin = txtFile.lines;
+  var where = txtFile.grep(exp, true);
+  var toPrint = [where[0].i, (where[0].i)+1, (where[0].i)+2, (where[0].i)+3];
+  for(let k in toPrint){
+    console.log(lin[k]);
+    resumeInfo.experience += lin[k];
+  }
+ }
+console.log(resumeInfo);
