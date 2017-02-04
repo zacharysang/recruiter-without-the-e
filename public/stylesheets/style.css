@@ -2,10 +2,9 @@
 
 @keyframes submit-swell {
 	0% {width:100;}
-	60% {width:160;}
-	100% {width:130;}
+	60% {width:120;}
+	100% {width:100;}
 }
-
 
 html {
 	background-color:#79E579
@@ -40,16 +39,17 @@ input:focus{
 	transition:0.3s;
 }
 
-#submit{
+svg:hover{
+	animation-name: submit-swell;
+	animation-duration: 0.4s;
+}
+
+svg{
 	width:100px;
 	height:70px;
-	background-color:33C733;
+	background-color:#33C733;
 	border-radius:.60rem;
 }
 
-#submit:hover{
-	animation-name: submit-swell;
-	animation-duration: 0.4s;
-	width:130;
-}
+
 
