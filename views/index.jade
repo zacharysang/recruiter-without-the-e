@@ -1,5 +1,24 @@
-extends layout
+//	
+	extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+	block content
+	h1= title
+	p Welcome to #{title}
+
+html
+	head
+	title recruiter-without-the-e
+	body
+		text(id="title-text")
+		div(class="profile-input" id="github")
+			text Github:
+			input(type="textbox" value="github username")
+		div(class="profile-input" id="linkedin")
+			text Linkedin:
+			input(type="textbox" value="linkedin username")
+		div(class="profile-input" id="resume")
+			text Resume:
+			input(type="file")
+	
+		
+		
