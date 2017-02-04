@@ -2,24 +2,24 @@ extends layout.jade
 		
 block content
 	div(id="title") Ideal Person
-	div(id="ideal-form")
+	form(id="ideal-form" action="ideal" method="post")
 		table
 			tr(class="ideal-input")
 				td GPA: 
 				td
-					input(type="number")
+					input(type="number", name="GPA")
 			tr(class="ideal-input")
 				td Years of Experience: 
 				td
-					input(type="number")
+					input(type="number", name="experience")
 			tr(class="ideal-input")
 				td Github Repos (more than..):
 				td 
-					input(type="number")
+					input(type="number", name="num_companies")
 			tr(class="ideal-input")
 				td Github Commits (more than..):
 				td
-					input(type="number")
+					input(type="number", name="commit_count")
 			tr(class="ideal-input")
 				td Languages: 					
 				td
@@ -41,4 +41,4 @@ block content
 						option Lua
 						option Python
 						option C++
-		a(id="submit" href="lookup") Submit
+		input(type="submit" id="submit" value="Go!")
