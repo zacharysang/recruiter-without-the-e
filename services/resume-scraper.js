@@ -41,32 +41,10 @@ else {
   });
 }
 
-/*var f = require('fs');
-var word = "Education";
-f.readFile("output.txt", function(e, cont){
-  var re = new RegExp('^.*' + word + '.*$', 'm');
-  var m = re.exec(cont);
-  if (m)
-    console.log('Word %j found on line: %j', word, m[0]);
-  else
-    console.log('Word %j not found', word);
-});*/
 var JFile=require('jfile');
 var txtFile=new JFile("output.txt");
-var buzzwords = ["c++", "java", "javascript", " iot ", "cloud", "parallel computing", " ai ", "artificial intelligence", "html", "css", "deep learning", "machine learning", "python"];
+var buzzwords = [" app ", "c++", "java", "javascript", " iot ", "cloud", "parallel computing", " ai ", "artificial intelligence", "html", "css", "deep learning", "machine learning", "python"];
 for(let word of buzzwords){
   var result = txtFile.grep(word);
   if(result.length>0) console.log(word);
 }
-/*var f = require('fs');
-var s = fs.createReadStream("output.txt");
-var found = false;
-s.on('data', function(d){
-  if(!found) found=!!('' + d).match("Education");
-});
-s.on('error', function(e){
-  then(e, found);
-});
-s.on('close', function(e){
-  then(e, found);
-});*/
