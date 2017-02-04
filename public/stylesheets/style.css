@@ -1,3 +1,5 @@
+/*http://paletton.com/#uid=12P0u0kjJBH9-SXf9KFnKvhtdsb*/
+
 @keyframes submit-swell {
 	0% {width:100;}
 	60% {width:160;}
@@ -35,7 +37,7 @@ input{
 
 input:focus{
 	width:330px;
-	transition:0.4s;
+	transition:0.3s;
 }
 
 #submit{
