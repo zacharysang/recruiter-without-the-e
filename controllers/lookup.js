@@ -9,7 +9,7 @@ exports.renderForm = function(req, res) {
     res.render('lookup');
 }
 
-exports.createProfile = function(req, res) {
+exports.doLookup = function(req, res) {
     var github = req.body.github;
     var resume = req.files.resume;
 
@@ -29,10 +29,15 @@ exports.createProfile = function(req, res) {
     }
 
     var githubInfo = githubScraper.getGitHubInfo(github);
-    githubInfo.then(function() {
-        console.log(githubInfo);
-    });
 
-    //Promise.all([githubInfo, resumeInfo]).then(function() {})
+    Promise.all([githubInfo]).then(function() {
+        res.render('profile', { profile: {name: githubInfo.name,
+            company: githubInfo.company,
+            location: githubInfo.location,
+            bio: githubInfo.bio,
+            repo_count: githubInfo.repo_count,
+            languages: githubInfo.languages,
+            commit_count: githubInfo.commit_count}})
+    })
 
 }
