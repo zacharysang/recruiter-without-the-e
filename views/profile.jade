@@ -24,12 +24,18 @@ block content
 			ul
 				+snapshot-item("Github repos",profile.repo-count)
 				+snapshot-item("Github commits",profile.commit-count)
-				+snapshot-item("Languages",profile.repo-count)
+				+snapshot-item("Languages",profile.languages)
 					ul
 						for lang in profile.languages
+							li=lang
+				+snapshot-item("Skills",profile.skills)
+					ul
+						for skill in profile.skill
 							li=lang
 		
 		div(class="profile-section" id="details")
 			div(class="section-title") Details
 			ul
 				+details-item("Bio",profile.bio)
+				+details-item("Education",profile.education)
+				+details-item("Experience",profile.experience)
