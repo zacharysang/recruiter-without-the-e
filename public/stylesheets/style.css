@@ -1,11 +1,5 @@
 /*http://paletton.com/#uid=12P0u0kjJBH9-SXf9KFnKvhtdsb*/
 
-@keyframes submit-swell {
-	0% {width:100;}
-	60% {width:120;}
-	100% {width:100;}
-}
-
 html {
 	background-color:#79E579
 }
@@ -25,7 +19,7 @@ a {
   color: #00B7FF;
 }
 
-input{
+.profile-input > input{
 	width:250px;
 	padding:12px;
 	margin:7px;
@@ -35,17 +29,17 @@ input{
 	border-width:0px;
 }
 
-input:hover{
+.profile-input:hover > input{
 	width:330px;
 	transition:0.3s;
 }
 
-input:focus{
+.profile-input:focus > input{
 	width:330px;
 }
 
 /*These need testing*/
-input:not(focus){
+.profile-input:not(focus) > input{
 	width:250px;
 	transition:0.3s;
 }
@@ -55,6 +49,7 @@ input:not(focus){
 	height:70px;
 	background-color:#33C733;
 	border-radius:.60rem;
+	margin:20px;
 }
 
 #submit:hover{
