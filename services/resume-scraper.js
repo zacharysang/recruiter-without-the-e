@@ -94,7 +94,6 @@ exports.getResumeInfo = function(filename){
   else {
     console.warn("printing raw items from file:", filename, "...");
 
-
     var o = new Promise(function(resolve, reject){
     var p= printRawItems(filename, function(){});
       resolve(p);
