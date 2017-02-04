@@ -22,8 +22,8 @@ block content
 		div(class="profile-section" id="snapshot")
 			div(class="section-title") Snapshot
 			ul
-				+snapshot-item("Github repos",profile.repo-count)
-				+snapshot-item("Github commits",profile.commit-count)
+				+snapshot-item("Github repos",profile.repo_count)
+				+snapshot-item("Github commits",profile.commit_count)
 				+snapshot-item("Languages",profile.languages)
 					ul
 						for lang in profile.languages
