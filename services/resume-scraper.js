@@ -1,5 +1,4 @@
-var LOG = require("C:/Users/ltebb/node_modules/pdfreader/lib/LOG.js").toggle(false);
-var PdfReader = require("C:/Users/ltebb/node_modules/pdfreader/index.js").PdfReader;
+var PdfReader = require("pdfreader").PdfReader;
 var fs = require('graceful-fs');
 
 var resumeInfo = {
