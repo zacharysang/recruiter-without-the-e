@@ -22,6 +22,12 @@ function getResultValues(objectIn){
 }
 
 function getIndeedJobs(query,locat){
+  if (typeof query === 'undefined') {
+    query = ''
+  }
+  if (typeof locat === 'undefined') {
+    locat = ''
+  }
   var options = {
     host: 'api.indeed.com',
     path: '/ads/apisearch?publisher=907151921225947&q='+ query +'&l='+ locat +'&sort=&radius=&st=&jt=&start=&limit=10&fromage=7&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2&format=json'
