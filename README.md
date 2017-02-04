@@ -6,6 +6,8 @@
 $npm install
 # Start the express server
 $npm start
+# To run in dev mode
+$npm run dev
 # Run a specific service
 $node services/[filename].js
 ```
@@ -17,3 +19,5 @@ $ cp env.example .env
 ```
 Reference variables with
 `process.env.VARNAME`
+
+You should replace LT_SUBDOMAIN in .env with a unique subdomain.
