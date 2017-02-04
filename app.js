@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var localTunnel = require('localtunnel');
 var fileUpload = require('express-fileupload');
-var validator = require('express-validator')
+var expressValidator = require('express-validator')
 
 var routes = require('./routes/index');
 
@@ -27,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressValidator());
 
 app.use('/', routes);
 

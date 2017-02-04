@@ -1,7 +1,7 @@
 /**
  * Controller for lookups
  */
-
+var util = require('util');
 var githubScraper = require('../services/github-scraper');
 //var resumeScraper = require('../services/resume-scraper');
 
