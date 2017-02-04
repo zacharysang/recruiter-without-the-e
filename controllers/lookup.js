@@ -11,7 +11,11 @@ exports.renderForm = function(req, res) {
 
 exports.doLookup = function(req, res) {
     var github = req.body.github;
-    var resume = req.file.path;
+    try {
+        var resume = req.file.path;
+    } catch (e) {
+        console.log("Resume field blank");
+    }
 
     req.validate('github', 'No Github Provided').notEmpty();
     // This might not work because I'm not sure if validate checks files
