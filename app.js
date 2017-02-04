@@ -5,8 +5,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var localTunnel = require('localtunnel');
 
 var routes = require('./routes/index');
+
+// Check if the '--dev' flag was passed
+const devMode = process.argv[2] === '--dev';
 
 var app = express();
 
@@ -23,6 +27,25 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+
+var listener = app.listen(5214, function() {
+  console.log('Listening on port ' + listener.address().port);
+});
+
+if (devMode) {
+  const options = {
+    subdomain: process.env.LT_SUBDOMAIN
+  }
+  console.log(process.env.LT_SUBDOMAIN)
+  tunnel = localTunnel(listener.address().port, options, function(err, tunnel) {
+    if (err) {
+      console.log('Error creating localtunnel');
+      process.exit(1);
+    }
+
+    console.log('The localtunnel has been opened: ' + tunnel.url);
+  });
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
