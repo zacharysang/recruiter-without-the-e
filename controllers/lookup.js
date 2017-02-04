@@ -10,19 +10,21 @@ exports.renderForm = function(req, res) {
 }
 
 exports.doLookup = function(req, res) {
+    console.log(req.file)
     var github = req.body.github;
-    var resume = req.files.resume;
+    //var resume = req.files.resume;
 
-    req.checkBody('github', 'No Github Provided').notEmpty();
+    req.validate('github', 'No Github Provided').notEmpty();
     // This might not work because I'm not sure if validate checks files
-    req.validate('resume', 'No resume provided').notEmpt();
+    //req.validate('resume', 'No resume provided').notEmpt();
 
     req.getValidationResult().then(function(result) {
-        if (result.length() > 1) {
+        if (result.length > 1) {
             res.send("No information entered!");
             return;
         }
     })
+
 
     if (github.indexOf('/') != -1) {
         github = github.substring(github.lastIndexOf('/'), github.length());
