@@ -28,14 +28,14 @@ block content
 					ul
 						for lang in profile.languages
 							li=lang
-				+snapshot-item("Skills",resumeInfo.skills)
+				+snapshot-item("Skills",profile.skills)
 					ul
-						for skill in resumeInfo.skills
+						for skill in profile.skills
 							li=skill
 		
 		div(class="profile-section" id="details")
 			div(class="section-title") Details
 			ul
 				+details-item("Bio",profile.bio)
-				+details-item("Experience",resumeInfo.experience)
-				+details-item("Education",resumeInfo.education)
+				+details-item("Experience",profile.experience)
+				+details-item("Education",profile.education)
