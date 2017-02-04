@@ -19,16 +19,13 @@ function printRawItems(filename, callback){
         fs.appendFile('output.txt', "\n" + item.text, function(er){
           callback(er);
         });
-/*        var ed = [item.text].find('Education');
-        console.log(ed);
-        if(ed){
-          console.log("Help");
-        }*/
      }
     else
       console.warn(item);
   });
 }
+
+var resumeInfo = {};
 
 var filename = process.argv[2];
 if (!filename) {
@@ -37,7 +34,7 @@ if (!filename) {
 else {
   console.warn("printing raw items from file:", filename, "...");
   printRawItems(filename, function(){
-    console.warn("done.");
+    //console.warn("done.");
   });
 }
 
