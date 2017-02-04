@@ -41,7 +41,7 @@ exports.doLookup = function(req, res) {
 
     Promise.resolve(githubInfo).then(function(githubStuff) {
     //githubInfo.then(function() {
-        res.json( {profile: {
+        res.render('profile', {profile: {
             name: githubStuff.name,
             location: githubStuff.location,
             bio: githubStuff.bio,
