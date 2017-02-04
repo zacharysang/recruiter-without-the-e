@@ -88,8 +88,7 @@ console.log(resumeInfo);
 return(resumeInfo);
 }
 
-function getResumeInfo(){
-  var filename = process.argv[2];
+exports.getResumeInfo = function(filename){
   if (!filename) {
     console.error("please provide the name of a PDF file");
   }
