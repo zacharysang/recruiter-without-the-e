@@ -1,13 +1,13 @@
 extends layout.jade
 //-Declaring item mixin
 mixin overview-item(att,val)
-	li.item= att + " : " +  ((val != null | val == "") ? val : "Not available")
+	li= att + " : " +  ((val != null | val == "") ? val : "Not available")
 	
 mixin snapshot-item(att,val)
-	li.item= att + " : " +  ((val != null | val == "") ? val : "Not available")
+	li= att + " : " +  ((val != null | val == "") ? val : "Not available")
 	
 mixin details-item(att,val)
-	li.item= att + " : " +  ((val != null | val == "") ? val : "Not available")
+	li(class="profile-detail")= att + " : " +  ((val != null | val == "") ? val : "Not available")
 		
 block content
 	div(id="title") Profile
